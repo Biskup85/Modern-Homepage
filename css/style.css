@@ -1,0 +1,169 @@
+:root{
+    --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+    --fs-800: /* 6.25rem */3.5rem;
+    --fs-700: /*3.5rem*/1.5rem;
+    --fs-600: /*2rem*/1rem;
+    --fs-500: 1rem;
+    --fs-400: /*1.125rem*/ 0.9375rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+}
+
+@media(min-width:768px){
+    :root{
+        /* font-sizes */
+        --fs-800: 5rem;
+        --fs-700: 2.5rem;
+        --fs-600: 1.5rem;
+        --fs-500: 1.25rem;
+        --fs-400: 1rem;
+    }    
+}
+
+@media (min-width:992px){
+    /* font-sizes */
+    :root{
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500:1.75rem;
+    --fs-400: 1.125rem:
+    }
+}
+
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+}
+
+html{    
+    font-family: "Roboto", sans-serif;
+    font-size: var(--fs-400);       
+}
+
+/* Header */
+header{
+    height: 100vh;      
+    align-items: center;    
+    flex-direction: column;
+    background: #163644 url('../img/cup-of-coffee-640px.jpg');   
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+@media(min-width:992px){
+    header{
+        background: #163644 url('../img/cup-of-coffee-1280px.jpg');
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+header h1{
+    color: white;
+    text-transform: uppercase;
+    line-height: 1.5;
+    letter-spacing: .2em;
+    font-weight: 100;
+}
+
+header h1::first-letter{
+    color: #ffc107;
+}
+
+/* Navbar */
+nav{        
+    position: fixed;
+    width: 100%;    
+}
+
+nav ul{        
+    padding: 1em;
+    list-style: none;       
+    text-decoration: none; 
+}
+
+ nav ul li{
+    margin: 0 2em;
+}
+
+nav ul li a{
+    color: #5dfff0;
+    font-size: var(--fs-500);
+    transition: font-size 250ms, color 250ms ease-in;    
+}
+
+nav ul  li a:hover{
+    color: white;
+    font-size: var(--fs-700);    
+}
+
+/* Menu icon close icon */
+
+.menu-icon,
+.close-icon{    
+    z-index: 100;
+    position: fixed;    
+    right: 2em;
+    top: 1em;
+    color: white;
+    font-size: var(--fs-600);    
+    padding: .2em;
+    cursor: pointer;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 250ms;    
+}
+
+.menu-icon.active,
+.close-icon.active{
+    opacity: 1;
+    top: 1.3em;
+    pointer-events: auto;    
+}
+
+/* Main menu */
+.main-menu{                
+    min-height: 100%;
+    top: 100vh;    
+    background-color: #009688;        
+    transition: all 250ms;
+}
+
+.main-menu ul{  
+    text-align: center;
+    align-self: center;
+    flex-direction: column;            
+}
+.main-menu ul li{
+    margin: 2em 0;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 100ms;   
+}
+
+.main-menu ul li a{
+    color: white;
+    transition: color 150ms ease-in;
+    text-decoration: none;
+    font-size: var(--fs-600);
+}
+
+.main-menu ul li a:hover{
+    color: #143935;
+}
+
+.main-menu.active{
+    top: 0;
+}
+
+.main-menu.active ul li{
+    transform: translateY(0);
+    opacity: 1;
+}
